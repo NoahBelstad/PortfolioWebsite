@@ -47,7 +47,7 @@ npm run dev
 
 * Deployment Note: Once built, the static assets located in PortfolioWebsite/frontend/dist/ can be hosted directly via an Amazon S3 static website or an AWS Amplify app.
   
-###3. Build & Test Backend
+### 3. Build & Test Backend
 ```bash
 cd backend
 cargo lambda build --release
