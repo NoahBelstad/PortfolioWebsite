@@ -6,8 +6,8 @@ A high-performance, modern portfolio built with a serverless-first architecture 
 
 ## Key Features
 
-* **Automated GitHub Sync**: Automatically fetches your latest repositories and projects directly from the GitHub API.
-* **S3-Backed Content Management**: Project data is cached in an S3 JSON file, allowing you to manually edit project details, descriptions, and ordering without requiring a full redeployment.
+* **Automated GitHub Sync & S3 Caching**: The backend automatically fetches and writes fresh data directly to S3 on a scheduled basis (such as once an hour), so client requests are served instantly from static storage without needing to spin up an instance or query external APIs on every page load.
+* **S3-Backed Content Management**: Project data is stored in an S3 JSON file, allowing you to manually edit project details, descriptions, and ordering without requiring a full redeployment.
 * **Serverless Architecture**: Powered by AWS Lambda (Custom Runtime `provided.al2023`) and Amazon API Gateway for extreme scalability and cost-efficiency.
 * **High Performance**: Leveraging Rust for the backend ensures rapid execution speed and exceptionally low latency.
 
@@ -21,6 +21,7 @@ A high-performance, modern portfolio built with a serverless-first architecture 
 
 ---
 
+
 ## Prerequisites
 
 Make sure you have the following tools installed on your local machine:
@@ -32,7 +33,7 @@ Make sure you have the following tools installed on your local machine:
 
 ## Setup & Development
 
-### 1. Clone the Repository
+## 1. Clone the Repository
 ```bash
 git clone git clone https://github.com/noahbelstad/PortfolioWebsite.git
 cd PortfolioWebsite
@@ -47,7 +48,7 @@ npm run dev
 
 * Deployment Note: Once built, the static assets located in PortfolioWebsite/frontend/dist/ can be hosted directly via an Amazon S3 static website or an AWS Amplify app.
   
-### 3. Build & Test Backend
+## 3. Build & Test Backend
 ```bash
 cd backend
 cargo lambda build --release
