@@ -36,8 +36,8 @@ export function RecentActivity() {
                 </div>
 
                 <div className="self-start sm:self-auto">
-                    <Button to="/activity" variant="secondary" showArrow>
-                        View live feed
+                    <Button to="https://github.com/NoahBelstad" variant="secondary" showArrow>
+                        View all commits
                     </Button>
                 </div>
             </div>
