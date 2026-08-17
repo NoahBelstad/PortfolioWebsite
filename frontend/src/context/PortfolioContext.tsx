@@ -1,7 +1,6 @@
 import { createContext, useContext, useEffect, useState } from 'react';
 import { type ReactNode } from 'react';
 import type { PortfolioData } from '../types/portfolio';
-import { Result } from 'postcss';
 
 const S3_JSON_URL = 'https://portfolio-storage-851725639779-eu-north-1-an.s3.eu-north-1.amazonaws.com/projects.json';
 

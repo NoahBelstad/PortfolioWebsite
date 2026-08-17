@@ -4,7 +4,6 @@ const NAV_LINKS = [
     { path: '/', label: 'Home' },
     { path: '/projects', label: 'Projects' },
     { path: '/about', label: 'About' },
-    { path: '/activity', label: 'Activity' },
     { path: '/uses', label: 'Uses' },
     { path: '/contact', label: 'Contact' },
 ];

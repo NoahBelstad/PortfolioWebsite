@@ -2,17 +2,16 @@ const SETUP_SECTIONS = [
     {
         category: "Hardware",
         items: [
-            { name: "Custom Desktop PC", spec: "Ryzen 7, 32GB RAM, RTX 3070" },
-            { name: "Monitors", spec: "Dual 27-inch 144Hz Displays" },
-            { name: "Keyboard & Mouse", spec: "Mechanical Keyboard (Tactile Switches), Logitech MX Master" }
+            { name: "Custom Desktop PC", spec: "Ryzen 7 9800x3d, 32GB RAM, RTX 5080" },
+            { name: "Monitors", spec: "4k 280hz oled main display, 2k 180hz ips secondary display" },
+            { name: "Keyboard & Mouse", spec: "Razer blackwidow v3 keyboard (Green switches), Razer Basilisk X HyperSpeed mouse" }
         ]
     },
     {
         category: "Software & Editor",
         items: [
-            { name: "IDE", spec: "VS Code & IntelliJ IDEA (for Java/Minecraft)" },
-            { name: "Terminal", spec: "Alacritty + Zsh" },
-            { name: "Font", spec: "JetBrains Mono" }
+            { name: "IDE", spec: "VS Code & IntelliJ IDEA" },
+            { name: "Os", spec: "Cachy os" },
         ]
     }
 ];
