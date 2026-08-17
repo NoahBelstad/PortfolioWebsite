@@ -1,4 +1,7 @@
 import { Button } from '../components/ui/Button';
+import aboutImage1 from '../assets/Aboutimage1.png';
+import aboutImage2 from '../assets/Aboutimage2.svg';
+import aboutImage3 from '../assets/Aboutimage3.svg';
 
 interface SectionBlockProps {
     number: string;
@@ -65,12 +68,12 @@ function AboutSection({
                 )}
             </div>
 
-            <div className={`relative aspect-video sm:aspect-square w-full bg-zinc-900 border border-zinc-800 rounded-2xl overflow-hidden flex items-center justify-center group shadow-xl ${reverse ? 'md:order-1' : ''}`}>
+            <div className={`relative aspect-video sm:aspect-square w-full bg-zinc-900 border border-zinc-800 rounded-2xl overflow-hidden flex items-center justify-center p-4 sm:p-6 group shadow-xl ${reverse ? 'md:order-1' : ''}`}>
                 {imageSrc ? (
                     <img
                         src={imageSrc}
                         alt={imageAlt || title}
-                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                        className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-300 rounded-xl"
                     />
                 ) : (
                     <div className="text-center p-6 space-y-2">
@@ -118,6 +121,8 @@ export default function About() {
                     'Eventually, I wanted to move beyond 2D graphics and stepped into Roblox Studio to create 3D games. From there, I expanded into Java for Minecraft modding and picked up web development. By age 15, I learned Rust and AWS, building this portfolio website as my first production-ready cloud app.',
                     "Currently, I'm focused on mastering Rust, advancing my web development skills, and diving into the Godot engine for indie game creation.",
                 ]}
+                imageSrc={aboutImage1}
+                imageAlt="Noah Belstad portrait"
                 placeholderIcon="📷"
                 placeholderLabel="Your Photo / Image 1"
             />
@@ -131,6 +136,8 @@ export default function About() {
                     "My primary technical toolkit centers around modern TypeScript, React, and Tailwind CSS on the frontend, paired with Rust, Node.js, and AWS infrastructure on the backend. I also have a keen interest in Java and Godot, and I'm always on the lookout for new tools and techniques to improve my skills. I'm a firm believer in the power of open-source software and the importance of contributing to the community.",
                 ]}
                 tags={['Rust', 'TypeScript', 'React', 'Tailwind CSS', 'AWS', 'Java', 'Godot']}
+                imageSrc={aboutImage2}
+                imageAlt="Development workspace"
                 placeholderIcon="💻"
                 placeholderLabel="Code / Workspace Image 2"
             />
@@ -142,6 +149,8 @@ export default function About() {
                 paragraphs={[
                     "When I'm not writing code or building serverless backend pipelines, I enjoy designing indie game mechanics in Godot, exploring hardware projects, and keeping up with the latest open-source tools.",
                 ]}
+                imageSrc={aboutImage3}
+                imageAlt="Hobbies and game development"
                 placeholderIcon="⚡"
                 placeholderLabel="Hobbies / Image 3"
             />
