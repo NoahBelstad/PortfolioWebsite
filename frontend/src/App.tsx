@@ -8,7 +8,6 @@ import About from './pages/About';
 import Projects from './pages/Projects';
 import Contact from './pages/Contact';
 import Activity from './pages/Activity';
-import Blog from './pages/Blog';
 import Uses from './pages/Uses';
 
 export default function App() {
@@ -24,7 +23,6 @@ export default function App() {
                 <Route path="/projects" element={<Projects />} />
                 <Route path="/about" element={<About />} />
                 <Route path="/activity" element={<Activity />} />
-                <Route path="/blog" element={<Blog />} />
                 <Route path="/uses" element={<Uses />} />
                 <Route path="/contact" element={<Contact />} />
               </Routes>

@@ -5,7 +5,6 @@ const NAV_LINKS = [
     { path: '/projects', label: 'Projects' },
     { path: '/about', label: 'About' },
     { path: '/activity', label: 'Activity' },
-    { path: '/blog', label: 'Blog' },
     { path: '/uses', label: 'Uses' },
     { path: '/contact', label: 'Contact' },
 ];
@@ -33,8 +32,8 @@ export function Navbar() {
                                 key={path}
                                 to={path}
                                 className={`px-3 py-1.5 text-xs sm:text-sm font-medium rounded-lg transition-colors whitespace-nowrap ${isActive
-                                        ? 'bg-zinc-800 text-indigo-400 border border-zinc-700'
-                                        : 'text-zinc-400 hover:text-white hover:bg-zinc-900'
+                                    ? 'bg-zinc-800 text-indigo-400 border border-zinc-700'
+                                    : 'text-zinc-400 hover:text-white hover:bg-zinc-900'
                                     }`}
                             >
                                 {label}

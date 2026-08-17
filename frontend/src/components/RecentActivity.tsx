@@ -1,6 +1,28 @@
 import { usePortfolio } from '../context/PortfolioContext';
 import { Button } from './ui/Button';
 
+// Color progression: 0 = Dark Gray -> 1 = Soft Forest Green -> 2-3 = Rich Dark Green -> 4-6 = Vibrant Emerald -> 7+ = Glowing Mint
+function getCommitStyle(count: number) {
+    if (count <= 0) {
+        // 0: Pure dark gray
+        return 'bg-zinc-900 border-zinc-800/60 text-zinc-600 shadow-none';
+    }
+    if (count === 1) {
+        // 1: Subtle dark forest green (distinctly green, but soft)
+        return 'bg-emerald-950/60 border-emerald-900/60 text-emerald-400/90 shadow-sm shadow-emerald-950/30';
+    }
+    if (count <= 3) {
+        // 2-3: Rich medium-dark green
+        return 'bg-emerald-900 border-emerald-700 text-emerald-300 shadow-md shadow-emerald-950/50';
+    }
+    if (count <= 6) {
+        // 4-6: Vibrant solid emerald
+        return 'bg-emerald-500 border-emerald-400 text-zinc-950 font-extrabold shadow-lg shadow-emerald-500/40';
+    }
+    // 7+: Glowing bright mint green with white border highlight
+    return 'bg-emerald-300 border-white text-zinc-950 font-black ring-2 ring-emerald-400 shadow-xl shadow-emerald-400/80 scale-105';
+}
+
 export function RecentActivity() {
     const { data } = usePortfolio();
     const weeklyCommits = data?.gitHistory?.weeklyCommits || [];
@@ -22,11 +44,12 @@ export function RecentActivity() {
 
             <div className="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-7 gap-3">
                 {weeklyCommits.map((item, index) => {
-                    // Normalize data safely
                     const commits = Array.isArray(item?.commits) ? item.commits : [];
                     const count = typeof item === 'number' ? item : commits.length;
                     const day = item?.day || `Day ${index + 1}`;
                     const date = item?.date || '';
+
+                    const badgeClass = getCommitStyle(count);
 
                     return (
                         <div
@@ -37,8 +60,10 @@ export function RecentActivity() {
                                 {day}
                             </span>
 
-                            <div className="w-12 h-12 rounded-full bg-emerald-950/80 border border-emerald-500/40 flex items-center justify-center text-emerald-400 font-bold text-base shadow-lg shadow-emerald-950/50 group-hover:scale-105 transition-transform">
-                                +{count}
+                            <div
+                                className={`w-12 h-12 rounded-full border flex items-center justify-center text-base transition-all group-hover:scale-110 ${badgeClass}`}
+                            >
+                                {count > 0 ? `+${count}` : '0'}
                             </div>
 
                             <span className="text-[10px] text-zinc-500 mt-2">
