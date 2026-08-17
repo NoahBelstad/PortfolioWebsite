@@ -2,7 +2,7 @@ name: Deploy static content to Pages
 
 on:
   push:
-    branches: ['main'] # Use 'master' if your default branch is named master
+    branches: ['master'] # Use 'master' if your default branch is named master
 
   workflow_dispatch:
 
