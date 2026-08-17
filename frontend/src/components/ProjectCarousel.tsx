@@ -9,15 +9,24 @@ export function ProjectCarousel() {
     const isHovered = useRef(false);
     const currentSpeed = useRef(0.25);
 
+    // Ensure we have enough items in our base chunk so scrollWidth is always larger than the container
+    const baseProjects = [...featuredProjects];
+    if (baseProjects.length > 0) {
+        while (baseProjects.length < 4) {
+            baseProjects.push(...featuredProjects);
+        }
+    }
+
+    // Create 3 identical chunks for seamless infinite scrolling
     const displayProjects = [
-        ...featuredProjects,
-        ...featuredProjects,
-        ...featuredProjects,
+        ...baseProjects,
+        ...baseProjects,
+        ...baseProjects,
     ];
 
     useEffect(() => {
         const container = scrollRef.current;
-        if (!container || displayProjects.length === 0) return;
+        if (!container || featuredProjects.length === 0) return;
 
         let animationFrameId: number;
         const baseSpeed = 0.25;
@@ -36,11 +45,13 @@ export function ProjectCarousel() {
                     container.scrollLeft += currentSpeed.current;
                 }
 
-                const halfWidth = container.scrollWidth / 2;
-                if (container.scrollLeft >= halfWidth) {
-                    container.scrollLeft -= halfWidth;
+                // Since we have 3 chunks, the width of one chunk is scrollWidth / 3
+                const singleSetWidth = container.scrollWidth / 3;
+
+                if (container.scrollLeft >= singleSetWidth * 2) {
+                    container.scrollLeft -= singleSetWidth;
                 } else if (container.scrollLeft <= 0) {
-                    container.scrollLeft += halfWidth;
+                    container.scrollLeft += singleSetWidth;
                 }
             }
             animationFrameId = requestAnimationFrame(autoScroll);
@@ -48,7 +59,7 @@ export function ProjectCarousel() {
 
         animationFrameId = requestAnimationFrame(autoScroll);
         return () => cancelAnimationFrame(animationFrameId);
-    }, [displayProjects.length]);
+    }, [displayProjects.length, featuredProjects.length]);
 
     if (displayProjects.length === 0) return null;
 
