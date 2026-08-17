@@ -1,4 +1,5 @@
 import { useRef, useEffect } from 'react';
+import ReactMarkdown from 'react-markdown';
 import { usePortfolio } from '../context/PortfolioContext';
 
 export function ProjectCarousel() {
@@ -77,7 +78,11 @@ export function ProjectCarousel() {
                 >
                     <div>
                         <h3 className="text-lg sm:text-xl font-bold text-zinc-100">{project.title}</h3>
-                        <p className="mt-2 text-xs sm:text-sm text-zinc-400 leading-snug line-clamp-3">{project.description}</p>
+
+                        {/* Markdown-enabled description with line clamping to keep cards uniform */}
+                        <div className="mt-2 text-xs sm:text-sm text-zinc-400 leading-snug line-clamp-3 prose prose-invert max-w-none">
+                            <ReactMarkdown>{project.description}</ReactMarkdown>
+                        </div>
                     </div>
                     <div className="mt-4 flex flex-wrap gap-1.5">
                         {project.tags.map((tag) => (
