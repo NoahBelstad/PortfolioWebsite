@@ -53,4 +53,4 @@ npm run dev
 cd backend
 cargo lambda build --release
 ```
-* Deployment Note: This compiles your code into an optimized bootstrap binary located at PortfolioWebsite/backend/target/lambda/backend/. Zip this file and upload it directly to your AWS Lambda function. Configure the Lambda function to trigger periodically every hour using an event scheduler.
+* Deployment Note: This compiles your code into an optimized bootstrap binary located at PortfolioWebsite/backend/target/lambda/backend/.bootstrap this file can then be zipped and uploaded directly to your AWS Lambda function. Configure the Lambda function to trigger periodically every hour using an event scheduler.
